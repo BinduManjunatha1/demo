@@ -6,13 +6,12 @@ function Slides({slides}) {
     let  [id,setId]= useState(0)
     
     
-    
     const next =()=>{
         
        
         if(id < slides.length  && id != slides.length-1){
             console.log("Length is ",slides.length +" id is ",id)
-            
+          
             return setId(++id)
 
         }
@@ -35,9 +34,9 @@ function Slides({slides}) {
     return (
         <div>
             <div id="navigation" className="text-center">
-                <button data-testid="button-restart" className="small outlined" onClick={restart}>Restart</button>
-                <button data-testid="button-prev" className="small" onClick={prev}>Prev</button>
-                <button data-testid="button-next" className="small" onClick={next}>Next</button>
+                <button data-testid="button-restart" className="small outlined" disabled={id ===0} onClick={restart}>Restart</button>
+                <button data-testid="button-prev" className="small" disabled={id ===0} onClick={prev}>Prev</button>
+                <button data-testid="button-next" disabled={id === slides.length-1} className="small" onClick={next}>Next</button>
             </div>
             
                
